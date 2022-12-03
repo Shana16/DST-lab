@@ -1,0 +1,63 @@
+#include<stdio.h>
+#define size 3
+void insert ();void delete();void display();
+int queue[size],front=-1,rear=-1,item,i;
+void main()
+{
+int n;
+while(1)
+{
+
+
+printf("\n Enter choice 1.Insert 2.delete 3.display 4.exit \n");
+scanf("%d",&n);
+switch(n)
+{case 1: insert();break;
+case 2: delete();break;
+case 3: display();break;
+case 4: exit(0);break;
+default:printf("\n enter valid choice \n");break;
+}
+}
+}
+void insert ()
+{
+if(rear==size-1)
+printf("\n queue is full \n");
+else
+{ if(front==-1 && rear==-1)
+{front=0;rear=0;}
+  else
+{rear=rear+1;}
+ printf("\n enter element \n");
+scanf("%d",&item);
+queue[rear]=item;
+}
+}
+void delete()
+{
+    int x;
+    if(front==-1)
+        printf("queue is empty");
+        else
+        {
+            x=queue[front];
+            if(front==rear)
+            {front=-1;rear=-1;}
+            else
+               {
+
+                front++;
+               }
+           printf("deleted element is %d",x);
+        }
+}
+
+void display()
+{ if(front==-1)
+        printf("queue is empty");
+        else
+        {for(i=front;i<=rear;i++)
+        printf("%d \t",queue[i]);
+        }
+        }
